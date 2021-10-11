@@ -31,6 +31,10 @@
     <!-- We may want to include tests later. -->
     <exclude-pattern>/tests/*</exclude-pattern>
 
+    <!-- Ensure certain file types aren't sniffed -->
+    <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>*.css</exclude-pattern>
+
     <!-- Rules -->
     <rule ref="WordPress-Core">
         <!-- Definitely should not be added back -->
