@@ -1,0 +1,25 @@
+{
+  "name": "forgravity/coding-standards",
+  "type": "phpcodesniffer-standard",
+  "description": "PHP_CodeSniffer rules (sniffs) to enforce ForGravity coding conventions",
+  "keywords": [
+    "phpcs",
+    "standards",
+    "WordPress",
+    "ForGravity"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Contributors",
+      "homepage": "https://github.com/ForGravity/coding-standards/graphs/contributors"
+    }
+  ],
+  "require": {
+    "squizlabs/php_codesniffer": "@stable",
+    "phpcompatibility/php-compatibility": "@stable",
+    "wp-coding-standards/wpcs": "@stable",
+    "dealerdirect/phpcodesniffer-composer-installer": "@stable",
+    "phpcompatibility/phpcompatibility-wp": "@stable"
+  }
+}
