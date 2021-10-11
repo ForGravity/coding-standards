@@ -23,9 +23,6 @@
     <!-- Show sniff codes in all reports. -->
     <arg value="ps"/>
 
-    <!-- Includes -->
-    <file>.</file>
-
     <!-- Exclude patterns -->
     <exclude-pattern>/node_modules/*</exclude-pattern>
     <exclude-pattern>/includes/vendor/*</exclude-pattern>
