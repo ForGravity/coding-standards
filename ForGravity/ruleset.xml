@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="WP">
+<ruleset name="ForGravity">
     <description>ForGravity Coding standards</description>
 
     <!-- Only scan PHP files. -->
