@@ -90,4 +90,6 @@
         <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition" />
     </rule>
 
+    <rule ref="PHPCompatibilityWP"/>
+
 </ruleset>
