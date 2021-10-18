@@ -50,6 +50,25 @@
     </rule>
     <rule ref="WordPress.CodeAnalysis.EmptyStatement"/>
 
+    <!-- We use extra lines for better readibilty, turn the following rules into warnings. -->
+    <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineCASE">
+        <type>warning</type>
+    </rule>
+    <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineDEFAULT">
+        <type>warning</type>
+    </rule>
+
+    <!-- We like one liners, turn the following rules into warnings. -->
+    <rule ref="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound">
+        <type>warning</type>
+    </rule>
+    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace">
+        <type>warning</type>
+    </rule>
+    <rule ref="Generic.Formatting.DisallowMultipleStatements.SameLine">
+        <type>warning</type>
+    </rule>
+
     <!-- These rules are being set as warnings instead of errors, so we can error check the entire codebase. -->
     <rule ref="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase">
         <type>warning</type>
