@@ -36,9 +36,6 @@
         <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found"/>
         <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.BlankLineAfterEnd"/>
 
-        <!-- Should probably not be added back -->
-        <exclude name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure"/>
-
         <!-- Should maybe Add Back Later -->
         <exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
@@ -46,6 +43,14 @@
         <exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments"/>
     </rule>
     <rule ref="WordPress.CodeAnalysis.EmptyStatement"/>
+
+    <!-- Allow the use of: $a = $b = 1; -->
+    <rule name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure">
+        <type>warning</type>
+    </rule>
+    <rule name="Squiz.PHP.DisallowMultipleAssignments.Found">
+        <type>warning</type>
+    </rule>
 
     <!-- We use extra lines for better readibilty, turn the following rules into warnings. -->
     <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineCASE">
