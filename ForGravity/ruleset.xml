@@ -45,10 +45,10 @@
     <rule ref="WordPress.CodeAnalysis.EmptyStatement"/>
 
     <!-- Allow the use of: $a = $b = 1; -->
-    <rule name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure">
+    <rule ref="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure">
         <type>warning</type>
     </rule>
-    <rule name="Squiz.PHP.DisallowMultipleAssignments.Found">
+    <rule ref="Squiz.PHP.DisallowMultipleAssignments.Found">
         <type>warning</type>
     </rule>
 
