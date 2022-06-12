@@ -21,9 +21,7 @@
     "phpcompatibility/php-compatibility": "@stable",
     "wp-coding-standards/wpcs": "@stable",
     "dealerdirect/phpcodesniffer-composer-installer": "@stable",
-    "phpcompatibility/phpcompatibility-wp": "@stable"
-  },
-  "require-dev": {
+    "phpcompatibility/phpcompatibility-wp": "@stable",
     "sirbrillig/phpcs-variable-analysis": "^2.11"
   }
 }
