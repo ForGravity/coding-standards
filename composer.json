@@ -17,13 +17,13 @@
   ],
   "require" : {
     "php" : ">=5.6",
-    "squizlabs/php_codesniffer": "@stable"
-  },
-  "require-dev": {
+    "squizlabs/php_codesniffer": "@stable",
     "phpcompatibility/php-compatibility": "@stable",
     "wp-coding-standards/wpcs": "@stable",
     "dealerdirect/phpcodesniffer-composer-installer": "@stable",
-    "phpcompatibility/phpcompatibility-wp": "@stable",
+    "phpcompatibility/phpcompatibility-wp": "@stable"
+  },
+  "require-dev": {
     "sirbrillig/phpcs-variable-analysis": "^2.11"
   }
 }
