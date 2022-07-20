@@ -33,6 +33,7 @@
         <!-- Definitely should not be added back -->
         <exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed"/>
         <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
         <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found"/>
         <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.BlankLineAfterEnd"/>
 
