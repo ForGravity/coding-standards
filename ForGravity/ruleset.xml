@@ -22,7 +22,7 @@
 
     <!-- Exclude patterns -->
     <exclude-pattern>/node_modules/*</exclude-pattern>
-    <exclude-pattern>/includes/vendor/*</exclude-pattern>
+    <exclude-pattern>/vendor/*</exclude-pattern>
     <exclude-pattern>/tmp</exclude-pattern>
     <exclude-pattern>/class-edd-sl-plugin-updater.php</exclude-pattern>
     <!-- We may want to include tests later. -->
