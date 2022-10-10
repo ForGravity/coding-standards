@@ -22,9 +22,7 @@
     "wp-coding-standards/wpcs": "@stable",
     "dealerdirect/phpcodesniffer-composer-installer": "@stable",
     "phpcompatibility/phpcompatibility-wp": "@stable",
-    "sirbrillig/phpcs-variable-analysis": "^2.11",
-    "phpunit/phpunit": "^5.7",
-    "yoast/phpunit-polyfills": "^1.0"
+    "sirbrillig/phpcs-variable-analysis": "^2.11"
   },
   "config": {
     "allow-plugins": {
