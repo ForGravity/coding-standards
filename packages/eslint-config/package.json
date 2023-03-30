@@ -34,11 +34,14 @@
     "gravityforms",
     "wordpress"
   ],
+  "scripts": {
+    "lint": "eslint --quiet --format table .",
+    "lint:fix": "eslint --quiet --format table --fix ."
+  },
   "dependencies": {
     "@wordpress/eslint-plugin": "^14.3.0"
   },
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+  "devDependencies": {
+    "eslint-formatter-table": "^7.32.1"
   }
 }
