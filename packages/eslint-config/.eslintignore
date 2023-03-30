@@ -1,0 +1,7 @@
+# Files and folders related to build/test tools
+# node_modules and .folders are ignored by default
+/dist
+/tests
+/tmp
+/vendor
+/vendor_prefixed
