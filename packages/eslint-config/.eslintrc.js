@@ -12,18 +12,25 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType:  'module',
 	},
+	plugins:       [
+		'align-assignments',
+	],
 	rules:         {
-		camelcase:         [
+		camelcase:                             [
 			'warn',
 		],
-		'no-multi-spaces': [ 'error', {
+		'no-multi-spaces':                     [ 'error', {
 			exceptions: {
 				VariableDeclarator: true,
 				ImportDeclaration:  true,
 			},
 		} ],
-		'key-spacing':     [ 'error', {
+		'key-spacing':                         [ 'error', {
 			mode: 'minimum', align: 'value',
 		} ],
+		'align-assignments/align-assignments': [
+			'error',
+			{ requiresOnly: false },
+		],
 	},
 };
