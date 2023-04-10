@@ -16,21 +16,20 @@ module.exports = {
 		'align-assignments',
 	],
 	rules:         {
-		camelcase:                             [
-			'warn',
+		'align-assignments/align-assignments': [
+			'error',
+			{ requiresOnly: false },
 		],
+		camelcase:                             [ 'warn' ],
+		'key-spacing':                         [ 'error', {
+			mode: 'minimum', align: 'value',
+		} ],
 		'no-multi-spaces':                     [ 'error', {
 			exceptions: {
 				VariableDeclarator: true,
 				ImportDeclaration:  true,
 			},
 		} ],
-		'key-spacing':                         [ 'error', {
-			mode: 'minimum', align: 'value',
-		} ],
-		'align-assignments/align-assignments': [
-			'error',
-			{ requiresOnly: false },
-		],
+		'padded-blocks':                       [ 'warn' ],
 	},
 };
