@@ -27,12 +27,13 @@ module.exports = {
 		'key-spacing':                         [ 'error', {
 			mode: 'minimum', align: 'value',
 		} ],
-		'no-multi-spaces':                     [ 'error', {
+		'no-multi-spaces':                     [ 'warn', {
 			exceptions: {
 				VariableDeclarator: true,
 				ImportDeclaration:  true,
 			},
 		} ],
+		'no-shadow':                           [ 'warn' ],
 		'padded-blocks':                       [ 'warn' ],
 	},
 };
