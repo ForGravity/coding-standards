@@ -33,7 +33,6 @@ module.exports = {
 				ImportDeclaration:  true,
 			},
 		} ],
-		'no-shadow':                           [ 'warn' ],
 		'padded-blocks':                       [ 'warn' ],
 	},
 };
