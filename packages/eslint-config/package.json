@@ -36,18 +36,11 @@
   ],
   "scripts": {
     "lint": "eslint --quiet --format table .",
-    "lint:fix": "eslint --quiet --format table --fix .",
-    "prepare": "cd ../../ && husky install packages/eslint-config"
+    "lint:fix": "eslint --quiet --format table --fix ."
   },
   "devDependencies": {
     "@wordpress/eslint-plugin": "^14.3.0",
-    "eslint": "^8.38.0",
     "eslint-formatter-table": "^7.32.1",
     "eslint-plugin-align-assignments": "^1.1.2",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.1"
-  },
-  "lint-staged": {
-    "*.js": "eslint --quiet --cache --fix"
   }
 }
