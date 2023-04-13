@@ -37,7 +37,7 @@
   "scripts": {
     "lint": "eslint --quiet --format table .",
     "lint:fix": "eslint --quiet --format table --fix .",
-    "prepare": "husky install"
+    "prepare": "cd ../../ && husky install packages/eslint-config"
   },
   "devDependencies": {
     "@wordpress/eslint-plugin": "^14.3.0",
