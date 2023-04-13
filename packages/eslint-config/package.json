@@ -41,6 +41,6 @@
   "devDependencies": {
     "@wordpress/eslint-plugin": "^14.3.0",
     "eslint-formatter-table": "^7.32.1",
-    "eslint-plugin-align-assignments": "^1.1.2",
+    "eslint-plugin-align-assignments": "^1.1.2"
   }
 }
