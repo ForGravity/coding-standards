@@ -4,6 +4,9 @@ module.exports = {
 		browser: true,
 		es2021:  true,
 	},
+	globals:       {
+		gform: 'readonly',
+	},
 	extends:       [
 		'plugin:@wordpress/eslint-plugin/recommended-with-formatting', // Change to
 		// 'plugin:@wordpress/eslint-plugin/recommended' to enable Prettier or TypeScript support.
