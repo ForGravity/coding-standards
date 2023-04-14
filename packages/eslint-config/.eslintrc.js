@@ -5,8 +5,10 @@ module.exports = {
 		es2021:  true,
 	},
 	globals:       {
-		gform:   'readonly',
-		ajaxurl: 'readonly',
+		gform:            'readonly',
+		ajaxurl:          'readonly',
+		SetFieldProperty: 'readonly',
+		GetSelectedField: 'readonly',
 	},
 	extends:       [
 		'plugin:@wordpress/eslint-plugin/recommended-with-formatting', // Change to
