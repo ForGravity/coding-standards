@@ -36,4 +36,7 @@ module.exports = {
 		} ],
 		'padded-blocks':                       [ 'warn' ],
 	},
+	settings:      {
+		'import/resolver': 'webpack',
+	},
 };
