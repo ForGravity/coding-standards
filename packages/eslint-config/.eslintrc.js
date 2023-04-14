@@ -5,7 +5,8 @@ module.exports = {
 		es2021:  true,
 	},
 	globals:       {
-		gform: 'readonly',
+		gform:   'readonly',
+		ajaxurl: 'readonly',
 	},
 	extends:       [
 		'plugin:@wordpress/eslint-plugin/recommended-with-formatting', // Change to
