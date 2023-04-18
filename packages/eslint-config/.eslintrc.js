@@ -30,9 +30,7 @@ module.exports = {
 		'key-spacing':                         [ 'warn', {
 			mode: 'minimum', align: 'value',
 		} ],
-		'no-multiple-empty-lines':             [ 'error', {
-			max: 5, maxEOF: 1, maxBOF: 0,
-		} ],
+		'no-multiple-empty-lines':             [ 'warn' ],
 		'no-multi-spaces':                     [ 'warn', {
 			exceptions: {
 				VariableDeclarator: true,
