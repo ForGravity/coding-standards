@@ -42,5 +42,10 @@ module.exports = {
 	},
 	settings:      {
 		'import/resolver': 'webpack',
+		jsdoc:             {
+			preferredTypes: {
+				bool: 'boolean',
+			},
+		},
 	},
 };
