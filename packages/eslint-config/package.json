@@ -42,6 +42,7 @@
     "@wordpress/eslint-plugin": "^14.3.0",
     "eslint-formatter-table": "^7.32.1",
     "eslint-import-resolver-webpack": "^0.13.2",
-    "eslint-plugin-align-assignments": "^1.1.2"
+    "eslint-plugin-align-assignments": "^1.1.2",
+    "eslint-plugin-align-import": "^1.0.0"
   }
 }

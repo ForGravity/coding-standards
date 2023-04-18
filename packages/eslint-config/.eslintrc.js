@@ -18,11 +18,15 @@ module.exports = {
 	},
 	plugins:       [
 		'align-assignments',
+		'babel-align-import',
 	],
 	rules:         {
 		'align-assignments/align-assignments': [
 			'error',
 			{ requiresOnly: false },
+		],
+		'align-import/align-import': [
+			'error',
 		],
 		camelcase:                             [ 'warn' ],
 		'key-spacing':                         [ 'error', {
