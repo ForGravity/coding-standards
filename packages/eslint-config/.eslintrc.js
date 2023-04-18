@@ -18,7 +18,7 @@ module.exports = {
 	},
 	plugins:       [
 		'align-assignments',
-		'babel-align-import',
+		'align-import',
 	],
 	rules:         {
 		'align-assignments/align-assignments': [
