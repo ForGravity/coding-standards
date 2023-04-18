@@ -22,14 +22,14 @@ module.exports = {
 	],
 	rules:         {
 		'align-assignments/align-assignments': [
-			'error',
+			'warn',
 			{ requiresOnly: false },
 		],
 		'align-import/align-import': [
-			'error',
+			'warn',
 		],
 		camelcase:                             [ 'warn' ],
-		'key-spacing':                         [ 'error', {
+		'key-spacing':                         [ 'warn', {
 			mode: 'minimum', align: 'value',
 		} ],
 		'no-multi-spaces':                     [ 'warn', {
