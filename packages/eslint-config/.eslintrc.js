@@ -25,12 +25,13 @@ module.exports = {
 			'warn',
 			{ requiresOnly: false },
 		],
-		'align-import/align-import': [
-			'warn',
-		],
+		'align-import/align-import':           [ 'warn' ],
 		camelcase:                             [ 'warn' ],
 		'key-spacing':                         [ 'warn', {
 			mode: 'minimum', align: 'value',
+		} ],
+		'no-multiple-empty-lines':             [ 'error', {
+			max: 5, maxEOF: 1, maxBOF: 0,
 		} ],
 		'no-multi-spaces':                     [ 'warn', {
 			exceptions: {
