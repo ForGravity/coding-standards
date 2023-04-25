@@ -38,7 +38,7 @@
     "lint": "eslint --quiet --format table .",
     "lint:fix": "eslint --quiet --format table --fix ."
   },
-  "devDependencies": {
+  "dependencies": {
     "@wordpress/eslint-plugin": "^14.3.0",
     "eslint-formatter-table": "^7.32.1",
     "eslint-import-resolver-webpack": "^0.13.2",
