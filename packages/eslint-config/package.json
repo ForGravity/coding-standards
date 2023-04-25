@@ -1,0 +1,48 @@
+{
+  "name": "@cosmicgiant/eslint-config",
+  "version": "0.0.1",
+  "description": "ESLint shareable configuration for CosmicGiant JavaScript coding standards",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CosmicGiant/coding-standards.git",
+    "directory": "packages/eslint-config"
+  },
+  "bugs": {
+    "url": "https://github.com/CosmicGiant/coding-standards/issues"
+  },
+  "homepage": "https://github.com/CosmicGiant/coding-standards#readme",
+  "engines": {
+    "node": ">=8.19.4"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "eslint-config-wordpress",
+    "javascript",
+    "jscs",
+    "jshint",
+    "lint",
+    "linter",
+    "linting",
+    "cosmicgiant",
+    "gravityforms",
+    "wordpress"
+  ],
+  "scripts": {
+    "lint": "eslint --quiet --format table .",
+    "lint:fix": "eslint --quiet --format table --fix ."
+  },
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^14.3.0",
+    "eslint-formatter-table": "^7.32.1",
+    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-plugin-align-assignments": "^1.1.2",
+    "eslint-plugin-align-import": "^1.0.0"
+  }
+}
