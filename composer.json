@@ -1,7 +1,7 @@
 {
   "name": "forgravity/coding-standards",
   "type": "phpcodesniffer-standard",
-  "description": "PHP_CodeSniffer rules (sniffs) to enforce ForGravity coding conventions",
+  "description": "PHP_CodeSniffer rules (sniffs) to enforce CosmicGiant coding conventions",
   "keywords": [
     "phpcs",
     "standards",

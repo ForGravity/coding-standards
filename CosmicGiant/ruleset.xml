@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="ForGravity">
-    <description>ForGravity Coding standards</description>
+<ruleset name="CosmicGiant">
+    <description>CosmicGiant Coding standards</description>
 
     <!-- Only scan PHP files. -->
     <arg name="extensions" value="php"/>
