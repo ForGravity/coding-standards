@@ -60,6 +60,12 @@
     <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineDEFAULT">
         <type>warning</type>
     </rule>
+    <rule ref="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose">
+        <type>warning</type>
+    </rule>
+    <rule ref="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody">
+        <type>warning</type>
+    </rule>
 
     <!-- We like one liners, turn the following rules into warnings. -->
     <rule ref="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound">
