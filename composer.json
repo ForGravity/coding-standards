@@ -15,14 +15,12 @@
       "homepage": "https://github.com/ForGravity/coding-standards/graphs/contributors"
     }
   ],
-  "require" : {
+  "require-dev" : {
     "php" : ">=5.6",
-    "squizlabs/php_codesniffer": "@stable",
     "phpcompatibility/php-compatibility": "@stable",
-    "wp-coding-standards/wpcs": "@stable",
-    "dealerdirect/phpcodesniffer-composer-installer": "@stable",
     "phpcompatibility/phpcompatibility-wp": "@stable",
-    "sirbrillig/phpcs-variable-analysis": "^2.11"
+    "sirbrillig/phpcs-variable-analysis": "^2.11",
+    "wp-coding-standards/wpcs": "^3.0.0"
   },
   "config": {
     "allow-plugins": {
