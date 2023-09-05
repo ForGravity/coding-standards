@@ -99,7 +99,7 @@
     <rule ref="PEAR.Files.IncludingFile.UseRequireOnce">
         <type>warning</type>
     </rule>
-    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+    <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
 
     <rule ref="WordPress">
         <!-- This is Rocketgenius coding standards. -->
