@@ -32,7 +32,7 @@
     <rule ref="WordPress-Core">
         <!-- Definitely should not be added back -->
         <exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed"/>
-        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
         <exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
         <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found"/>
         <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.BlankLineAfterEnd"/>
@@ -43,7 +43,7 @@
         <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments"/>
     </rule>
-    <rule ref="WordPress.CodeAnalysis.EmptyStatement"/>
+    <rule ref="Generic.CodeAnalysis.EmptyPHPStatement"/>
 
     <!-- Allow the use of: $a = $b = 1; -->
     <rule ref="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure">
@@ -58,6 +58,12 @@
         <type>warning</type>
     </rule>
     <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineDEFAULT">
+        <type>warning</type>
+    </rule>
+    <rule ref="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose">
+        <type>warning</type>
+    </rule>
+    <rule ref="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody">
         <type>warning</type>
     </rule>
 
@@ -99,12 +105,12 @@
     <rule ref="PEAR.Files.IncludingFile.UseRequireOnce">
         <type>warning</type>
     </rule>
-    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+    <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
 
     <rule ref="WordPress">
         <!-- This is Rocketgenius coding standards. -->
         <exclude name="WordPress.PHP.YodaConditions" />
-        <exclude name="WordPress.PHP.StrictComparisons"/>
+        <exclude name="Universal.Operators.StrictComparisons"/>
         <exclude name="WordPress.PHP.StrictInArray"/>
         <exclude name="WordPress.NamingConventions.ValidVariableName"/>
 
