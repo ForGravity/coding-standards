@@ -15,7 +15,7 @@
       "homepage": "https://github.com/ForGravity/coding-standards/graphs/contributors"
     }
   ],
-  "require-dev" : {
+  "require" : {
     "php" : ">=5.6",
     "phpcompatibility/php-compatibility": "@stable",
     "phpcompatibility/phpcompatibility-wp": "@stable",
