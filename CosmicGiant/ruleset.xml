@@ -108,6 +108,9 @@
     <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.SpaceAfterFunction">
         <type>warning</type>
     </rule>
+    <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing.SpaceAfterIncrement">
+        <type>warning</type>
+    </rule>
     <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
 
     <rule ref="WordPress">
