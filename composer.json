@@ -6,7 +6,8 @@
     "phpcs",
     "standards",
     "WordPress",
-    "ForGravity"
+    "ForGravity",
+    "CosmicGiant"
   ],
   "license": "MIT",
   "authors": [
