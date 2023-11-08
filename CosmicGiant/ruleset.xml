@@ -105,6 +105,9 @@
     <rule ref="PEAR.Files.IncludingFile.UseRequireOnce">
         <type>warning</type>
     </rule>
+    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.SpaceAfterFunction">
+        <type>warning</type>
+    </rule>
     <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
 
     <rule ref="WordPress">
