@@ -129,4 +129,7 @@
     <!-- Throw undefined variable errors https://github.com/sirbrillig/phpcs-variable-analysis -->
     <rule ref="VariableAnalysis"/>
 
+    <!-- Import Detection: https://github.com/sirbrillig/phpcs-import-detection -->
+    <rule ref="ImportDetection"/>
+
 </ruleset>
