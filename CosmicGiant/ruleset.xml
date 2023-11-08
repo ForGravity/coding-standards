@@ -33,7 +33,7 @@
         <!-- Definitely should not be added back -->
         <exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed"/>
         <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
-        <exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
+        <exclude name="Universal.Operators.DisallowShortTernary"/>
         <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found"/>
         <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.BlankLineAfterEnd"/>
 
@@ -105,6 +105,12 @@
     <rule ref="PEAR.Files.IncludingFile.UseRequireOnce">
         <type>warning</type>
     </rule>
+    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.SpaceAfterFunction">
+        <type>warning</type>
+    </rule>
+    <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing.SpaceAfterIncrement">
+        <type>warning</type>
+    </rule>
     <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
 
     <rule ref="WordPress">
@@ -122,5 +128,8 @@
 
     <!-- Throw undefined variable errors https://github.com/sirbrillig/phpcs-variable-analysis -->
     <rule ref="VariableAnalysis"/>
+
+    <!-- Import Detection: https://github.com/sirbrillig/phpcs-import-detection -->
+    <rule ref="ImportDetection"/>
 
 </ruleset>
