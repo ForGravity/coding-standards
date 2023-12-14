@@ -131,5 +131,11 @@
 
     <!-- Import Detection: https://github.com/sirbrillig/phpcs-import-detection -->
     <rule ref="ImportDetection"/>
+    <rule ref="ImportDetection.Imports.RequireImports">
+        <properties>
+            <property name="ignoreWordPressSymbols" value="true"/>
+            <property name="ignoreUnimportedSymbols" value="/^(rg\S+|cg\S+|CG\S+|fg\S+|FG\S+)$/"/>
+        </properties>
+    </rule>
 
 </ruleset>
