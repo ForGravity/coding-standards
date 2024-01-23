@@ -28,6 +28,7 @@
     <exclude-pattern>/vendor/*</exclude-pattern>
     <exclude-pattern>/tmp</exclude-pattern>
     <exclude-pattern>/class-edd-sl-plugin-updater.php</exclude-pattern>
+    <exclude-pattern>/scoper.inc.php</exclude-pattern>
     <!-- We may want to include tests later. -->
     <exclude-pattern>/tests/*</exclude-pattern>
 
