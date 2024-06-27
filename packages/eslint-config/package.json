@@ -1,6 +1,6 @@
 {
   "name": "@cosmicgiant/eslint-config",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "ESLint shareable configuration for CosmicGiant JavaScript coding standards",
   "license": "MIT",
   "repository": {
@@ -45,6 +45,6 @@
     "eslint-plugin-align-import": "^1.0.0"
   },
   "peerDependencies": {
-    "@wordpress/eslint-plugin": "^14.4.0"
+    "@wordpress/eslint-plugin": "^19.2.0"
   }
 }
