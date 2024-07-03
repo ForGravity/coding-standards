@@ -8,7 +8,7 @@
   },
   "types": "types",
   "dependencies": {
-    "cypress-plugin-snapshots": "^1.4.4",
+    "@frsource/cypress-plugin-visual-regression-diff": "^1.4.0",
     "execa": "^5.0.0",
     "shell-escape": "^0.2.0",
     "tiny-version-compare": "^3.0.1"

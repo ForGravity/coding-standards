@@ -1,7 +1,7 @@
 const path = require('path');
 const compareVersions = require('tiny-version-compare');
 
-import 'cypress-plugin-snapshots/commands';
+import '@frsource/cypress-plugin-visual-regression-diff/commands';
 
 /**
  * Prepare path for WP-CLI

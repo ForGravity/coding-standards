@@ -8,8 +8,7 @@
     "types": [
       "cypress",
       "@gravitywiz/cypress-plugin-gravity-wiz",
-      "node",
-      "cypress-plugin-snapshots"
+      "node"
     ],
     "allowJs": true,
     "checkJs": true

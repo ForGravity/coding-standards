@@ -1,5 +1,5 @@
 const execa = require('execa')
-const { initPlugin: initSnapshots } = require('cypress-plugin-snapshots/plugin');
+const { initPlugin } = require('@frsource/cypress-plugin-visual-regression-diff/dist/plugins');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
@@ -32,7 +32,7 @@ module.exports = {
                 }
 
                 const filePath = path.resolve( pluginPath, filename );
-                
+
                 fs.writeFileSync( filePath, contents );
                 fs.chmodSync( filePath, 0o0755 );
 
@@ -114,7 +114,7 @@ module.exports = {
             throw new Error('No plugin names passed to opts.activatePlugins when calling initGravityWiz(on, config, opts). Do you need to activate the plugin that you are testing?');
         }
 
-        initSnapshots(on, config);
+        initPlugin(on, config);
 
         return config;
     }
