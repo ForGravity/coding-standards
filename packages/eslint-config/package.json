@@ -45,6 +45,6 @@
     "eslint-plugin-align-import": "^1.0.0"
   },
   "peerDependencies": {
-    "@wordpress/eslint-plugin": "^14.4.0"
+    "@wordpress/eslint-plugin": "^22.22.0"
   }
 }
