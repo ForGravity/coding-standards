@@ -23,6 +23,11 @@ on:
         required: false
         type: boolean
         default: false
+      run-javascript-standards:
+        description: 'Whether to run JavaScript coding standards'
+        required: false
+        type: boolean
+        default: true
     secrets:
       GH_TOKEN:
         description: 'GitHub token for authentication'
@@ -104,7 +109,7 @@ jobs:
   eslint:
     name: JavaScript coding standards
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' && inputs.run-javascript-standards }}
 
     steps:
       - name: Checkout repository
