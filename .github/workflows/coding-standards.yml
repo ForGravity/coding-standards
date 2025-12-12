@@ -1,0 +1,174 @@
+name: Reusable Coding Standards
+
+on:
+  workflow_call:
+    inputs:
+      php-version:
+        description: 'PHP version to use'
+        required: false
+        type: string
+        default: '7.4'
+      node-version-file:
+        description: 'Path to node version file'
+        required: false
+        type: string
+        default: '.nvmrc'
+      remove-php-scoper:
+        description: 'Whether to remove PHP Scoper'
+        required: false
+        type: boolean
+        default: false
+      restore-composer-files:
+        description: 'Whether to restore composer files after PHPCS'
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      GH_TOKEN:
+        description: 'GitHub token for authentication'
+        required: true
+
+jobs:
+  phpcs:
+    name: PHP coding standards
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ inputs.php-version }}
+          coverage: none
+          tools: composer, cs2pr
+
+      - name: Log debug information
+        run: |
+          php --version
+          composer --version
+
+      - name: Add HTTP basic auth credentials
+        run: |
+          echo '{' >> $GITHUB_WORKSPACE/auth.json
+          echo '"github-oauth": {' >> $GITHUB_WORKSPACE/auth.json
+          echo '"github.com": "${{ secrets.GH_TOKEN }}" }' >> $GITHUB_WORKSPACE/auth.json
+          echo '}' >> $GITHUB_WORKSPACE/auth.json
+
+      - name: Remove PHP Scoper
+        if: ${{ inputs.remove-php-scoper }}
+        run: |
+          composer remove humbug/php-scoper --dev --no-scripts
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1
+        with:
+          composer-options: "--no-progress --no-ansi --no-interaction"
+
+      - name: Make Composer packages available globally
+        run: echo "${PWD}/includes/vendor/bin" >> $GITHUB_PATH
+
+      - name: Log PHPCS debug information
+        run: phpcs -i
+
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+        continue-on-error: true
+
+      - name: Create the PHPCS file list
+        run: |
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
+            printf ${changed_file}"\n" >> $GITHUB_WORKSPACE/file-list
+          done
+
+      - name: Run PHPCS on all changed files
+        continue-on-error: true
+        run: |
+          phpcs --standard=CosmicGiant --report-full --report-checkstyle=./phpcs-report.xml -n --file-list=$GITHUB_WORKSPACE/file-list
+
+      - name: Show PHPCS results in PR
+        run: cs2pr ./phpcs-report.xml
+
+      - name: Ensure version-controlled files are not modified during the tests
+        if: ${{ !inputs.restore-composer-files }}
+        run: git diff --exit-code
+
+      - name: Ensure version-controlled files are not modified during the tests
+        if: ${{ inputs.restore-composer-files }}
+        run: |
+          git restore composer.json
+          git diff --exit-code
+
+  eslint:
+    name: JavaScript coding standards
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ${{ inputs.node-version-file }}
+          cache: 'npm'
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ inputs.php-version }}
+          coverage: none
+          tools: composer, cs2pr
+
+      - name: Log debug information
+        run: |
+          php --version
+          composer --version
+
+      - name: Log Node version
+        run: |
+          node --version
+      - name: Log NPM version
+        run: |
+          npm --version
+      - name: Log Git version
+        run: |
+          git --version
+
+      - name: Add HTTP basic auth credentials
+        run: |
+          echo '{' >> $GITHUB_WORKSPACE/auth.json
+          echo '"github-oauth": {' >> $GITHUB_WORKSPACE/auth.json
+          echo '"github.com": "${{ secrets.GH_TOKEN }}" }' >> $GITHUB_WORKSPACE/auth.json
+          echo '}' >> $GITHUB_WORKSPACE/auth.json
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1
+        with:
+          composer-options: "--no-progress --no-ansi --no-interaction"
+
+      - name: Make Composer packages available globally
+        run: echo "${PWD}/includes/vendor/bin" >> $GITHUB_PATH
+
+      - name: Configure Git credentials for npm
+        run: |
+          git config --global credential.helper store
+          echo "https://x-access-token:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
+          git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+
+      ## Remove auth.json because we don't need it anymore and it pollutes the git diff.
+      - name: Run Lint-Staged
+        run: |
+          rm -rf auth.json
+          npm install
+          npx lint-staged --no-stash --diff="origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF}"
+
+      - name: Ensure version-controlled files are not modified during the tests
+        run: git diff --exit-code
