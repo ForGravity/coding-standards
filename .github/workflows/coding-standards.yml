@@ -91,7 +91,7 @@ jobs:
       - name: Run PHPCS on all changed files
         continue-on-error: true
         run: |
-          phpcs --standard=CosmicGiant --report-full --report-checkstyle=./phpcs-report.xml -n --file-list=$GITHUB_WORKSPACE/file-list
+          ${PWD}/includes/vendor/bin/phpcs --standard=CosmicGiant --report-full --report-checkstyle=./phpcs-report.xml -n --file-list=$GITHUB_WORKSPACE/file-list
 
       - name: Show PHPCS results in PR
         run: cs2pr ./phpcs-report.xml
