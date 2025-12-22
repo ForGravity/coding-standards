@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <ruleset name="CosmicGiant">
-    <description>CosmicGiant Coding standards</description>
+    <description>CosmicGiant Coding standards for Laravel</description>
 
-    <!-- Check for cross-version support for PHP 7.4 and higher. -->
-    <config name="testVersion" value="7.4-"/>
+    <!-- Check for cross-version support for PHP 8.4 and higher. -->
+    <config name="testVersion" value="8.4-"/>
 
     <!-- Only scan PHP files. -->
     <arg name="extensions" value="php"/>
@@ -27,27 +27,95 @@
     <exclude-pattern>/node_modules/*</exclude-pattern>
     <exclude-pattern>/vendor/*</exclude-pattern>
     <exclude-pattern>/tmp</exclude-pattern>
-    <exclude-pattern>/class-edd-sl-plugin-updater.php</exclude-pattern>
-    <exclude-pattern>/scoper.inc.php</exclude-pattern>
+    <exclude-pattern>/storage/*</exclude-pattern>
+    <exclude-pattern>/bootstrap/cache/*</exclude-pattern>
     <!-- We may want to include tests later. -->
     <exclude-pattern>/tests/*</exclude-pattern>
 
-    <!-- Rules -->
-    <rule ref="WordPress-Core">
-        <!-- Definitely should not be added back -->
+    <!-- ==================== -->
+    <!-- Base PSR-12 Standard -->
+    <!-- ==================== -->
+    <rule ref="PSR12">
+        <!-- We allow inline control structures for simple one-liners -->
         <exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed"/>
-        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
-        <exclude name="Universal.Operators.DisallowShortTernary"/>
-        <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found"/>
-        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.BlankLineAfterEnd"/>
-
-        <!-- Should maybe Add Back Later -->
-        <exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
-        <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
-        <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
-        <exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments"/>
     </rule>
-    <rule ref="Generic.CodeAnalysis.EmptyPHPStatement"/>
+
+    <!-- ==================== -->
+    <!-- Class/Function Brace Spacing -->
+    <!-- ==================== -->
+
+    <!-- Enforce no blank lines at the start and end of classes. -->
+    <rule ref="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
+
+    <!-- Enforce no blank lines at the start of a class/interface/trait body. -->
+    <rule ref="SlevomatCodingStandard.Classes.ClassStructure">
+        <properties>
+            <property name="groups" type="array">
+                <element value="uses"/>
+                <element value="public constants"/>
+                <element value="protected constants"/>
+                <element value="private constants"/>
+                <element value="public static properties"/>
+                <element value="protected static properties"/>
+                <element value="private static properties"/>
+                <element value="public properties"/>
+                <element value="protected properties"/>
+                <element value="private properties"/>
+                <element value="constructor"/>
+                <element value="static constructors"/>
+                <element value="public static methods"/>
+                <element value="protected static methods"/>
+                <element value="private static methods"/>
+                <element value="public methods"/>
+                <element value="protected methods"/>
+                <element value="private methods"/>
+                <element value="magic methods"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- No blank line after class opening brace -->
+    <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
+        <properties>
+            <property name="linesCountAfterOpeningBrace" value="0"/>
+            <property name="linesCountBeforeClosingBrace" value="0"/>
+        </properties>
+    </rule>
+
+    <!-- Enforce no blank lines at the start and end of functions. -->
+    <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+    <rule ref="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose"/>
+
+    <!-- ==================== -->
+    <!-- Array Syntax -->
+    <!-- ==================== -->
+    <!-- Use short array syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+    <!-- ==================== -->
+    <!-- Control Structures -->
+    <!-- ==================== -->
+    <!-- Allow short ternary operator -->
+    <!-- No exclusion needed - PSR-12 allows it -->
+
+    <!-- Allow assignment in conditions (common in while loops, etc.) -->
+    <rule ref="Generic.CodeAnalysis.AssignmentInCondition">
+        <exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found"/>
+        <exclude name="Generic.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition"/>
+    </rule>
+
+    <!-- We use extra lines for better readability, turn the following rules into warnings. -->
+    <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineCASE">
+        <type>warning</type>
+    </rule>
+    <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineDEFAULT">
+        <type>warning</type>
+    </rule>
+
+    <!-- ==================== -->
+    <!-- Coding Style Preferences -->
+    <!-- ==================== -->
 
     <!-- Allow the use of: $a = $b = 1; -->
     <rule ref="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure">
@@ -57,24 +125,10 @@
         <type>warning</type>
     </rule>
 
-    <!-- We use extra lines for better readibilty, turn the following rules into warnings. -->
-    <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineCASE">
-        <type>warning</type>
-    </rule>
-    <rule ref="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineDEFAULT">
-        <type>warning</type>
-    </rule>
-    <rule ref="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose">
-        <type>warning</type>
-    </rule>
-    <rule ref="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody">
-        <type>warning</type>
-    </rule>
+    <!-- Check for empty PHP statements -->
+    <rule ref="Generic.CodeAnalysis.EmptyPHPStatement"/>
 
-    <!-- We like one liners, turn the following rules into warnings. -->
-    <rule ref="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound">
-        <type>warning</type>
-    </rule>
+    <!-- We like one-liners, turn the following rules into warnings. -->
     <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace">
         <type>warning</type>
     </rule>
@@ -82,64 +136,91 @@
         <type>warning</type>
     </rule>
 
-    <!-- These rules are being set as warnings instead of errors, so we can error check the entire codebase. -->
-    <rule ref="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase">
-        <type>warning</type>
-    </rule>
-    <rule ref="WordPress.DB.PreparedSQL.InterpolatedNotPrepared">
-        <type>warning</type>
-    </rule>
-    <rule ref="WordPress.DB.PreparedSQL.NotPrepared">
-        <type>warning</type>
-    </rule>
-    <rule ref="WordPress.Files.FileName.InvalidClassFileName">
-        <type>warning</type>
-    </rule>
+    <!-- ==================== -->
+    <!-- Naming Conventions -->
+    <!-- ==================== -->
+    <!-- Laravel uses camelCase for variables and methods, PascalCase for classes -->
+    <!-- PSR-12 handles this by default -->
 
-    <!-- Enforce no parenthesis for language constructs, and only one space immediately after.
-         Including this rule is temporary until it is moved from the WordPress-Extra ruleset to
-         the WordPress-Core ruleset upstream.
-    -->
-    <rule ref="PEAR.Files.IncludingFile.BracketsNotRequired">
-        <type>warning</type>
-    </rule>
-    <rule ref="PEAR.Files.IncludingFile.UseRequire">
-        <type>warning</type>
-    </rule>
-    <rule ref="PEAR.Files.IncludingFile.UseRequireOnce">
-        <type>warning</type>
-    </rule>
-    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.SpaceAfterFunction">
-        <type>warning</type>
-    </rule>
-    <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing.SpaceAfterIncrement">
-        <type>warning</type>
-    </rule>
-    <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
+    <!-- ==================== -->
+    <!-- PHP Compatibility -->
+    <!-- ==================== -->
+    <rule ref="PHPCompatibility"/>
 
-    <rule ref="WordPress">
-        <!-- This is Rocketgenius coding standards. -->
-        <exclude name="WordPress.PHP.YodaConditions" />
-        <exclude name="Universal.Operators.StrictComparisons"/>
-        <exclude name="WordPress.PHP.StrictInArray"/>
-        <exclude name="WordPress.NamingConventions.ValidVariableName"/>
-
-        <!-- Assignments in while conditions are a valid method of looping over iterables. -->
-        <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition" />
-    </rule>
-
-    <rule ref="PHPCompatibilityWP"/>
-
+    <!-- ==================== -->
+    <!-- Variable Analysis -->
+    <!-- ==================== -->
     <!-- Throw undefined variable errors https://github.com/sirbrillig/phpcs-variable-analysis -->
     <rule ref="VariableAnalysis"/>
 
+    <!-- ==================== -->
+    <!-- Import Detection -->
+    <!-- ==================== -->
     <!-- Import Detection: https://github.com/sirbrillig/phpcs-import-detection -->
     <rule ref="ImportDetection"/>
     <rule ref="ImportDetection.Imports.RequireImports">
         <properties>
-            <property name="ignoreWordPressSymbols" value="true"/>
             <property name="ignoreUnimportedSymbols" value="/^(rg\S+|cg\S+|CG\S+|fg\S+|FG\S+)$/"/>
         </properties>
     </rule>
+
+    <!-- ==================== -->
+    <!-- Slevomat Rules -->
+    <!-- ==================== -->
+    <!-- Require trailing comma in multi-line arrays -->
+    <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/>
+
+    <!-- Enforce type hints where possible -->
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint">
+        <properties>
+            <property name="enableStaticTypeHint" value="true"/>
+            <property name="enableMixedTypeHint" value="true"/>
+            <property name="enableUnionTypeHint" value="true"/>
+            <property name="enableIntersectionTypeHint" value="true"/>
+            <property name="enableNeverTypeHint" value="true"/>
+        </properties>
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification"/>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint">
+        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification"/>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint">
+        <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification"/>
+    </rule>
+
+    <!-- Require use statements to be sorted -->
+    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
+
+    <!-- Require single blank line after namespace -->
+    <rule ref="SlevomatCodingStandard.Namespaces.NamespaceSpacing">
+        <properties>
+            <property name="linesCountBeforeNamespace" value="1"/>
+            <property name="linesCountAfterNamespace" value="1"/>
+        </properties>
+    </rule>
+
+    <!-- Require blank line after use statements -->
+    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing">
+        <properties>
+            <property name="linesCountBeforeFirstUse" value="1"/>
+            <property name="linesCountBetweenUseTypes" value="1"/>
+            <property name="linesCountAfterLastUse" value="1"/>
+        </properties>
+    </rule>
+
+    <!-- Disallow unused use statements -->
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+        <properties>
+            <property name="searchAnnotations" value="true"/>
+        </properties>
+    </rule>
+
+    <!-- Clean up unnecessary parentheses -->
+    <rule ref="SlevomatCodingStandard.PHP.UselessParentheses"/>
+
+    <!-- Require null-safe operator where applicable (PHP 8.0+) -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullSafeObjectOperator"/>
 
 </ruleset>
