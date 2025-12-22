@@ -14,16 +14,53 @@ PHP_CodeSniffer rules for Laravel projects using PSR-12 as the base standard wit
 
 This ruleset is based on PSR-12 with the following customizations:
 
-### Class Brace Spacing
-- **No empty lines after class opening brace** - Class content should start immediately after the opening brace
-- **No empty lines before class closing brace** - Class content should end immediately before the closing brace
-- **No empty lines at start/end of functions** - Same rules apply to function bodies
+### Brace Placement (K&R Style)
+- **Opening brace on same line** - For classes, interfaces, traits, and functions, the opening brace goes on the same line as the declaration
+- **No empty lines after opening brace** - Class/function content should start immediately after the opening brace
+- **No empty lines before closing brace** - Class/function content should end immediately before the closing brace
+
+```php
+// Correct
+class MyClass {
+    public function myMethod(): void {
+        // code
+    }
+}
+
+// Incorrect (PSR-12 style)
+class MyClass
+{
+    public function myMethod(): void
+    {
+        // code
+    }
+}
+```
+
+### Spaces Inside Parentheses
+Spaces are required inside parentheses for function calls, function declarations, and control structures:
+
+```php
+// Correct
+define( 'CONSTANT_NAME', 'CONSTANT_VALUE' );
+if ( $condition ) {
+    my_function( $arg1, $arg2 );
+}
+public function myMethod( string $param ): void {
+}
+
+// Incorrect
+define('CONSTANT_NAME', 'CONSTANT_VALUE');
+if ($condition) {
+    my_function($arg1, $arg2);
+}
+```
 
 ### Style Preferences Retained from Previous Standards
 - **Inline control structures allowed** - Simple one-line if/else statements are permitted
 - **Short ternary operator allowed** - `$value = $a ?: $b;` is permitted
 - **Short array syntax required** - Use `[]` instead of `array()`
-- **Assignment in conditions allowed** - Common patterns like `while ($row = fetch())` are permitted
+- **Assignment in conditions allowed** - Common patterns like `while ( $row = fetch() )` are permitted
 - **Multiple assignments allowed** (as warning) - `$a = $b = 1;` is permitted
 - **One-liner functions** (as warning) - Content after function brace is permitted
 

@@ -38,7 +38,58 @@
     <rule ref="PSR12">
         <!-- We allow inline control structures for simple one-liners -->
         <exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed"/>
+
+        <!-- Exclude PSR-12 brace placement rules - we use K&R style (same line) -->
+        <exclude name="Squiz.Classes.ClassDeclaration.OpenBraceNewLine"/>
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.OpenBraceNewLine"/>
+
+        <!-- Exclude PSR-12 no-space-in-parentheses rules - we require spaces -->
+        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceAfterOpenBracket"/>
+        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
+        <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+        <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
     </rule>
+
+    <!-- ==================== -->
+    <!-- Spaces Inside Parentheses -->
+    <!-- ==================== -->
+    <!-- Require spaces inside parentheses for function calls: func( $arg ) -->
+    <rule ref="PEAR.Functions.FunctionCallSignature">
+        <properties>
+            <property name="requiredSpacesAfterOpen" value="1"/>
+            <property name="requiredSpacesBeforeClose" value="1"/>
+        </properties>
+    </rule>
+
+    <!-- Require spaces inside parentheses for function declarations -->
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+        <properties>
+            <property name="equalsSpacing" value="1"/>
+            <property name="requiredSpacesAfterOpen" value="1"/>
+            <property name="requiredSpacesBeforeClose" value="1"/>
+        </properties>
+    </rule>
+
+    <!-- Require spaces inside control structure parentheses: if ( $condition ) -->
+    <rule ref="WordPress.WhiteSpace.ControlStructureSpacing"/>
+
+    <!-- ==================== -->
+    <!-- Brace Placement (K&R Style - Same Line) -->
+    <!-- ==================== -->
+    <!-- Opening brace on same line for functions -->
+    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie">
+        <properties>
+            <property name="checkFunctions" value="true"/>
+            <property name="checkClosures" value="true"/>
+        </properties>
+    </rule>
+
+    <!-- Opening brace on same line for classes/interfaces/traits -->
+    <rule ref="Generic.Classes.OpeningBraceSameLine"/>
 
     <!-- ==================== -->
     <!-- Class/Function Brace Spacing -->
