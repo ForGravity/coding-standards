@@ -57,6 +57,9 @@
 
         <!-- Allow no space after function keyword in closures: function( $arg ) -->
         <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.SpaceAfterFunction"/>
+
+        <!-- No line length limit -->
+        <exclude name="Generic.Files.LineLength.TooLong"/>
     </rule>
 
     <!-- ==================== -->
