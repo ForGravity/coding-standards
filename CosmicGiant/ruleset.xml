@@ -60,7 +60,13 @@
 
         <!-- No line length limit -->
         <exclude name="Generic.Files.LineLength.TooLong"/>
+
+        <!-- Use tabs instead of spaces for indentation -->
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
     </rule>
+
+    <!-- Enforce tabs for indentation -->
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
 
     <!-- ==================== -->
     <!-- Spaces Inside Parentheses -->
